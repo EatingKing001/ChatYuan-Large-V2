@@ -57,9 +57,9 @@ with block as demo:
     state = gr.State()
     message.submit(chatyuan_bot, inputs=[message, state], outputs=[chatbot, state])
     with gr.Row():
-      clear_history = gr.Button("👋 清除历史对话|Clear")
-      clear = gr.Button('🧹 清除发送框|Clear Input')
-      send = gr.Button("🚀 发送|Send")
+      clear_history = gr.Button("👋 清除历史对话 | Clear")
+      clear = gr.Button('🧹 清除发送框 | Clear Input')
+      send = gr.Button("🚀 发送 | Send")
       
     send.click(chatyuan_bot, inputs=[message, state], outputs=[chatbot, state])
     clear.click(lambda: None, None, message, queue=False)
@@ -110,9 +110,9 @@ with block as demo_1:
     state = gr.State()
     message.submit(chatyuan_bot_api, inputs=[api_key,message, state], outputs=[chatbot, state])
     with gr.Row():
-      clear_history = gr.Button("👋 清除历史对话|Clear Context")
-      clear = gr.Button('🧹 清除发送框 |Clear Input')
-      send = gr.Button("🚀 发送|Send")
+      clear_history = gr.Button("👋 清除历史对话 | Clear Context")
+      clear = gr.Button('🧹 清除发送框 | Clear Input')
+      send = gr.Button("🚀 发送 | Send")
 
     send.click(chatyuan_bot_api, inputs=[api_key,message, state], outputs=[chatbot, state])
     clear.click(lambda: None, None, message, queue=False)

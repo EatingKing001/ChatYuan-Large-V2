@@ -48,6 +48,8 @@ block = gr.Blocks()
 
 with block as demo:
     gr.Markdown("""<h1><center>元语智能——ChatYuan</center></h1>
+        <font size=4>回答来自ChatYuan, 是模型生成的结果, 请谨慎辨别和参考, 不代表任何人观点</font>
+
     """)
     chatbot = gr.Chatbot(label='ChatYuan')
     message = gr.Textbox()
@@ -97,6 +99,7 @@ block = gr.Blocks()
 
 with block as demo_1:
     gr.Markdown("""<h1><center>元语智能——ChatYuan</center></h1>
+    <font size=4>回答来自ChatYuan, 以上是模型生成的结果, 请谨慎辨别和参考, 不代表任何人观点</font>
     <font size=4>在使用此功能前，你需要有个API key. API key 可以通过这个<a href='https://www.clueai.cn/' target="_blank">平台</a>获取</font>
     """)
     api_key = gr.inputs.Textbox(label="请输入你的api-key(必填)", default="", type='password')
@@ -120,7 +123,19 @@ with block as introduction:
 <font size=4>😉ChatYuan: 元语功能型对话大模型
 <br>
 <br>
-👏这个模型可以用于问答、结合上下文做对话、做各种生成任务, 包括创意性写作, 也能回答一些像法律、新冠等领域问题. 它基于PromptCLUE-large结合数亿条功能对话多轮对话数据进一步训练得到.<br>
+👏ChatYuan-large-v2是一个支持中英双语的功能型对话语言大模型，是继ChatYuan系列中ChatYuan-large-v1开源后的又一个开源模型。ChatYuan-large-v2使用了和 v1版本相同的技术方案，在微调数据、人类反馈强化学习、思维链等方面进行了优化。
+
+ChatYuan-large-v2是ChatYuan系列中以轻量化实现高质量效果的模型之一，用户可以在消费级显卡、 PC甚至手机上进行推理（INT4 最低只需 400M ）。
+
+在chatyuan-large-v1的原有功能的基础上，我们给模型进行了如下优化：
+- 增强了基础能力。原有上下文问答、创意性写作能力明显提升。
+- 新增了拒答能力。对于一些危险、有害的问题，学会了拒答处理。
+- 新增了代码生成功能。对于基础代码生成进行了一定程度优化。
+- 新增了表格生成功能。使生成的表格内容和格式更适配。
+- 增强了基础数学运算能力。
+- 最大长度token数扩展到4096。
+- 增强了模拟情景能力。
+- 新增了中英双语对话能力。.<br>
 <br>
 👀<a href='https://www.cluebenchmarks.com/clueai.html'>PromptCLUE-large</a>在1000亿token中文语料上预训练, 累计学习1.5万亿中文token, 并且在数百种任务上进行Prompt任务式训练. 针对理解类任务, 如分类、情感分析、抽取等, 可以自定义标签体系; 针对多种生成任务, 可以进行采样自由生成.  <br> 
 <br>

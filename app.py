@@ -61,35 +61,35 @@ with block as demo:
     clear_history.click(fn=clear_session , inputs=[], outputs=[chatbot, state], queue=False)
     
 
-# def ChatYuan(api_key, text_prompt):
+def ChatYuan(api_key, text_prompt):
 
-#     cl = clueai.Client(api_key,
-#                         check_api_key=True)
-#     # generate a prediction for a prompt
-#     # 需要返回得分的话，指定return_likelihoods="GENERATION"
-#     prediction = cl.generate(model_name='ChatYuan-large', prompt=text_prompt)
-#     # print the predicted text
-#     print('prediction: {}'.format(prediction.generations[0].text))
-#     response = prediction.generations[0].text
-#     if response == '':
-#         response = "很抱歉，我无法回答这个问题"
+    cl = clueai.Client(api_key,
+                        check_api_key=True)
+    # generate a prediction for a prompt
+    # 需要返回得分的话，指定return_likelihoods="GENERATION"
+    prediction = cl.generate(model_name='ChatYuan-large', prompt=text_prompt)
+    # print the predicted text
+    print('prediction: {}'.format(prediction.generations[0].text))
+    response = prediction.generations[0].text
+    if response == '':
+        response = "很抱歉，我无法回答这个问题"
 
-#     return response
+    return response
   
-# def chatyuan_bot_api(api_key, input, history):
-#     history = history or []
+def chatyuan_bot_api(api_key, input, history):
+    history = history or []
 
-#     if len(history) > 5:
-#       history = history[-5:]
+    if len(history) > 5:
+      history = history[-5:]
 
-#     context = "\n".join([f"用户：{input_text}\n小元：{answer_text}" for input_text, answer_text in history])
-#     print(context)
+    context = "\n".join([f"用户：{input_text}\n小元：{answer_text}" for input_text, answer_text in history])
+    print(context)
 
-#     input_text = context + "\n用户：" + input + "\n小元："
-#     output_text = ChatYuan(api_key, input_text)
-#     history.append((input, output_text))
-#     print(history)
-#     return history, history
+    input_text = context + "\n用户：" + input + "\n小元："
+    output_text = ChatYuan(api_key, input_text)
+    history.append((input, output_text))
+    print(history)
+    return history, history
 
 block = gr.Blocks()
 
@@ -101,13 +101,13 @@ with block as demo_1:
     chatbot = gr.Chatbot(label='ChatYuan')
     message = gr.Textbox()
     state = gr.State()
-    message.submit(chatyuan_bot, inputs=[message, state], outputs=[chatbot, state])
+    message.submit(chatyuan_bot_api, inputs=[message, state], outputs=[chatbot, state])
     with gr.Row():
       clear_history = gr.Button("👋 清除历史对话")
       clear = gr.Button('🧹 清除发送框')
       send = gr.Button("🚀 发送")
 
-    send.click(chatyuan_bot, inputs=[message, state], outputs=[chatbot, state])
+    send.click(chatyuan_bot_api, inputs=[message, state], outputs=[chatbot, state])
     clear.click(lambda: None, None, message, queue=False)
     clear_history.click(fn=clear_session , inputs=[], outputs=[chatbot, state], queue=False)
 

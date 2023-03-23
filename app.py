@@ -102,13 +102,13 @@ with block as demo_1:
     chatbot = gr.Chatbot(label='ChatYuan')
     message = gr.Textbox()
     state = gr.State()
-    message.submit(chatyuan_bot_api, inputs=[message, state], outputs=[chatbot, state])
+    message.submit(chatyuan_bot_api, inputs=[api_key,message, state], outputs=[chatbot, state])
     with gr.Row():
       clear_history = gr.Button("👋 清除历史对话")
       clear = gr.Button('🧹 清除发送框')
       send = gr.Button("🚀 发送")
 
-    send.click(chatyuan_bot_api, inputs=[message, state], outputs=[chatbot, state])
+    send.click(chatyuan_bot_api, inputs=[api_key,message, state], outputs=[chatbot, state])
     clear.click(lambda: None, None, message, queue=False)
     clear_history.click(fn=clear_session , inputs=[], outputs=[chatbot, state], queue=False)
 

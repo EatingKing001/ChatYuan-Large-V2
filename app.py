@@ -124,14 +124,13 @@ with block as introduction:
     
 <font size=4>😉ChatYuan: 元语功能型对话大模型 | General Model for Dialogue with ChatYuan
 <br>
-<br>
 👏ChatYuan-large-v2是一个支持中英双语的功能型对话语言大模型，是继ChatYuan系列中ChatYuan-large-v1开源后的又一个开源模型。ChatYuan-large-v2使用了和 v1版本相同的技术方案，在微调数据、人类反馈强化学习、思维链等方面进行了优化。
-
-ChatYuan large v2 is an open-source large language model for dialogue that supports both Chinese and English languages, ChatGPT style.
-
+<br>
+ChatYuan large v2 is an open-source large language model for dialogue, supports both Chinese and English languages, and in ChatGPT style.
+<br>
 ChatYuan-large-v2是ChatYuan系列中以轻量化实现高质量效果的模型之一，用户可以在消费级显卡、 PC甚至手机上进行推理（INT4 最低只需 400M ）。
-
-在chatyuan-large-v1的原有功能的基础上，我们给模型进行了如下优化：
+<br>
+在Chatyuan-large-v1的原有功能的基础上，我们给模型进行了如下优化：
 - 新增了中英双语对话能力。
 - 新增了拒答能力。对于一些危险、有害的问题，学会了拒答处理。
 - 新增了代码生成功能。对于基础代码生成进行了一定程度优化。
@@ -140,7 +139,7 @@ ChatYuan-large-v2是ChatYuan系列中以轻量化实现高质量效果的模型�
 - 增强了基础数学运算能力。
 - 最大长度token数扩展到4096。
 - 增强了模拟情景能力。.<br>
-
+<br>
 Based on the original functions of Chatyuan-large-v1, we optimized the model as follows:
 
 -Added the ability to speak in both Chinese and English.
@@ -162,7 +161,7 @@ Based on the original functions of Chatyuan-large-v1, we optimized the model as 
 <br>
 👀<a href='https://www.cluebenchmarks.com/clueai.html'>PromptCLUE-large</a>在1000亿token中文语料上预训练, 累计学习1.5万亿中文token, 并且在数百种任务上进行Prompt任务式训练. 针对理解类任务, 如分类、情感分析、抽取等, 可以自定义标签体系; 针对多种生成任务, 可以进行采样自由生成.  <br> 
 <br>
-🚀<a href='https://www.clueai.cn/chat' target="_blank">在线Demo</a> &nbsp; | &nbsp; <a href='https://modelscope.cn/models/ClueAI/ChatYuan-large/summary' target="_blank">ModelScope</a> &nbsp; | &nbsp; <a href='https://huggingface.co/ClueAI/ChatYuan-large-v1' target="_blank">Huggingface</a> &nbsp; | &nbsp; <a href='https://www.clueai.cn' target="_blank">官网体验场</a> &nbsp; | &nbsp; <a href='https://github.com/clue-ai/clueai-python#ChatYuan%E5%8A%9F%E8%83%BD%E5%AF%B9%E8%AF%9D' target="_blank">ChatYuan-API</a> &nbsp; | &nbsp; <a href='https://github.com/clue-ai/ChatYuan' target="_blank">Github项目地址</a> &nbsp; | &nbsp; <a href='https://openi.pcl.ac.cn/ChatYuan/ChatYuan/src/branch/main/Fine_tuning_ChatYuan_large_with_pCLUE.ipynb' target="_blank">OpenI免费试用</a> &nbsp;
+ &nbsp; <a href='https://modelscope.cn/models/ClueAI/ChatYuan-large/summary' target="_blank">ModelScope</a> &nbsp; | &nbsp; <a href='https://huggingface.co/ClueAI/ChatYuan-large-v1' target="_blank">Huggingface</a> &nbsp; | &nbsp; <a href='https://www.clueai.cn' target="_blank">官网体验场</a> &nbsp; | &nbsp; <a href='https://github.com/clue-ai/clueai-python#ChatYuan%E5%8A%9F%E8%83%BD%E5%AF%B9%E8%AF%9D' target="_blank">ChatYuan-API</a> &nbsp; | &nbsp; <a href='https://github.com/clue-ai/ChatYuan' target="_blank">Github项目地址</a> &nbsp; | &nbsp; <a href='https://openi.pcl.ac.cn/ChatYuan/ChatYuan/src/branch/main/Fine_tuning_ChatYuan_large_with_pCLUE.ipynb' target="_blank">OpenI免费试用</a> &nbsp;
 </font>
     """)
 

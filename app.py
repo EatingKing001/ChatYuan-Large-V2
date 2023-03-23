@@ -1,5 +1,6 @@
 import os
 import gradio as gr
+import clueai
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("ClueAI/ChatYuan-large-v2")
 model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")

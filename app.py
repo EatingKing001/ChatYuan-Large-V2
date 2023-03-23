@@ -163,6 +163,7 @@ Based on the original functions of Chatyuan-large-v1, we optimized the model as 
 <br>
  &nbsp; <a href='https://modelscope.cn/models/ClueAI/ChatYuan-large/summary' target="_blank">ModelScope</a> &nbsp; | &nbsp; <a href='https://huggingface.co/ClueAI/ChatYuan-large-v1' target="_blank">Huggingface</a> &nbsp; | &nbsp; <a href='https://www.clueai.cn' target="_blank">官网体验场</a> &nbsp; | &nbsp; <a href='https://github.com/clue-ai/clueai-python#ChatYuan%E5%8A%9F%E8%83%BD%E5%AF%B9%E8%AF%9D' target="_blank">ChatYuan-API</a> &nbsp; | &nbsp; <a href='https://github.com/clue-ai/ChatYuan' target="_blank">Github项目地址</a> &nbsp; | &nbsp; <a href='https://openi.pcl.ac.cn/ChatYuan/ChatYuan/src/branch/main/Fine_tuning_ChatYuan_large_with_pCLUE.ipynb' target="_blank">OpenI免费试用</a> &nbsp;
 </font>
+<a href="https://clustrmaps.com/site/1bts0"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=ycVCe17noTYFDs30w7AmkFaE-TwabMBukDP1802_Lts&cl=ffffff" /></a>
     """)
 
 

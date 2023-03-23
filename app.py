@@ -7,7 +7,7 @@ tokenizer = T5Tokenizer.from_pretrained("ClueAI/ChatYuan-large-v2")
 model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2").half()
 # 使用
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
+model.to(device)
 
 def preprocess(text):
   text = text.replace("\n", "\\n").replace("\t", "\\t")
@@ -101,6 +101,7 @@ block = gr.Blocks()
 with block as demo_1:
     gr.Markdown("""<h1><center>元语智能——ChatYuan</center></h1>
     <font size=4>回答来自ChatYuan, 以上是模型生成的结果, 请谨慎辨别和参考, 不代表任何人观点</font>
+    
     <font size=4>在使用此功能前，你需要有个API key. API key 可以通过这个<a href='https://www.clueai.cn/' target="_blank">平台</a>获取</font>
     """)
     api_key = gr.inputs.Textbox(label="请输入你的api-key(必填)", default="", type='password')

@@ -128,4 +128,4 @@ with block as introduction:
 
 
 gui = gr.TabbedInterface(interface_list=[introduction,demo, demo_1], tab_names=["相关介绍","开源模型", "API调用"])
-gui.launch(quiet=True,show_api=False, share = True)
+gui.launch(quiet=True,show_api=False, share = False)

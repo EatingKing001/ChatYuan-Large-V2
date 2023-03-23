@@ -141,7 +141,23 @@ ChatYuan-large-v2是ChatYuan系列中以轻量化实现高质量效果的模型�
 - 最大长度token数扩展到4096。
 - 增强了模拟情景能力。.<br>
 
+Based on the original functions of Chatyuan-large-v1, we optimized the model as follows:
 
+-Added the ability to speak in both Chinese and English.
+
+-Added the ability to refuse to answer. Learn to refuse to answer some dangerous and harmful questions.
+
+-Added code generation functionality. Basic code generation has been optimized to a certain extent.
+
+-Enhanced basic capabilities. The original contextual Q&A and creative writing skills have significantly improved.
+
+-Added a table generation function. Make the generated table content and format more appropriate.
+
+-Enhanced basic mathematical computing capabilities.
+
+-The maximum number of length tokens has been expanded to 4096.
+
+-Enhanced ability to simulate scenarios< br>
 
 <br>
 👀<a href='https://www.cluebenchmarks.com/clueai.html'>PromptCLUE-large</a>在1000亿token中文语料上预训练, 累计学习1.5万亿中文token, 并且在数百种任务上进行Prompt任务式训练. 针对理解类任务, 如分类、情感分析、抽取等, 可以自定义标签体系; 针对多种生成任务, 可以进行采样自由生成.  <br> 

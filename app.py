@@ -4,7 +4,7 @@ import clueai
 import torch
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("ClueAI/ChatYuan-large-v2")
-model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2").half()
+model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 # 使用
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
@@ -25,11 +25,11 @@ def answer(text, sample=True, top_p=0.9, temperature=0.7):
   top_p：0-1之间，生成的内容越多样'''
   text = preprocess(text)
   encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=1024, return_tensors="pt").to(device) 
-  # if not sample:
-  #   out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, num_beams=1, length_penalty=0.6)
-  # else:
-  #   out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, do_sample=True, top_p=top_p, temperature=temperature, no_repeat_ngram_size=3)
-  out=model.generate(**encoding, **generate_config)
+  if not sample:
+      out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, num_beams=1, length_penalty=0.6)
+  else:
+      out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, do_sample=True, top_p=top_p, temperature=temperature, no_repeat_ngram_size=3)
+  #out=model.generate(**encoding, **generate_config)
   out_text = tokenizer.batch_decode(out["sequences"], skip_special_tokens=True)
   return postprocess(out_text[0])
 

@@ -9,7 +9,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
-base_info = "用户：你是谁？\n小元：我是元语智能公司研发的AI智能助手, 在不违反原则的情况下，我可以回答你的任何问题。"
+base_info = "用户：你是谁？\n小元：我是元语智能公司研发的AI智能助手, 在不违反原则的情况下，我可以回答你的任何问题。\n"
 def preprocess(text):
   text = f"{base_info}{text}"
   text = text.replace("\n", "\\n").replace("\t", "\\t")
@@ -49,9 +49,9 @@ def chatyuan_bot(input, history):
 
     input_text = context + "\n用户：" + input + "\n小元："
     output_text = answer(input_text)
-    print("="*20)
+    print("open_model".center(20, "="))
     print(f"{input_text}\n{output_text}")
-    print("="*20)
+    #print("="*20)
     history.append((input, output_text))
     #print(history)
     return history, history
@@ -103,9 +103,9 @@ def chatyuan_bot_api(api_key, input, history):
 
     input_text = context + "\n用户：" + input + "\n小元："
     output_text = ChatYuan(api_key, input_text)
-    print("="*20)
+    print("api".center(20, "="))
     print(f"api_key:{api_key}\n{input_text}\n{output_text}")
-    print("="*20)
+    #print("="*20)
     history.append((input, output_text))
     #print(history)
     return history, history

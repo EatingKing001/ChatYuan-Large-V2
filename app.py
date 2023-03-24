@@ -56,7 +56,27 @@ def chatyuan_bot(input, history):
     history.append((input, output_text))
     #print(history)
     return history, history
+def chatyuan_bot_regenerate(input, history):
+    
+    history = history or []
+    
+    if history:
+      input=history[-1][0]
+      history=history[:-1]
+      
+    
+    if len(history) > 5:
+       history = history[-5:]
 
+    context = "\n".join([f"用户：{input_text}\n小元：{answer_text}" for input_text, answer_text in history])
+    print(context)
+
+    input_text = context + "\n用户：" + input + "\n小元："
+    output_text = answer(input_text)
+    history.append((input, output_text))
+    print(history)
+    return history, history
+  
 block = gr.Blocks()
 
 with block as demo:
@@ -72,7 +92,10 @@ with block as demo:
       clear_history = gr.Button("👋 清除历史对话 | Clear")
       clear = gr.Button('🧹 清除发送框 | Clear Input')
       send = gr.Button("🚀 发送 | Send")
-      
+      regenerate = gr.Button("🚀 重新生成本次结果 | regenerate")
+
+
+    regenerate.click(chatyuan_bot_regenerate, inputs=[message, state], outputs=[chatbot, state])      
     send.click(chatyuan_bot, inputs=[message, state], outputs=[chatbot, state])
     clear.click(lambda: None, None, message, queue=False)
     clear_history.click(fn=clear_session , inputs=[], outputs=[chatbot, state], queue=False)
@@ -111,6 +134,8 @@ def chatyuan_bot_api(api_key, input, history):
     history.append((input, output_text))
     #print(history)
     return history, history
+
+
 
 block = gr.Blocks()
 
@@ -157,23 +182,14 @@ ChatYuan-large-v2是ChatYuan系列中以轻量化实现高质量效果的模型�
 - 增强了模拟情景能力。.<br>
 <br>
 Based on the original functions of Chatyuan-large-v1, we optimized the model as follows:
-
 -Added the ability to speak in both Chinese and English.
-
 -Added the ability to refuse to answer. Learn to refuse to answer some dangerous and harmful questions.
-
 -Added code generation functionality. Basic code generation has been optimized to a certain extent.
-
 -Enhanced basic capabilities. The original contextual Q&A and creative writing skills have significantly improved.
-
 -Added a table generation function. Make the generated table content and format more appropriate.
-
 -Enhanced basic mathematical computing capabilities.
-
 -The maximum number of length tokens has been expanded to 4096.
-
 -Enhanced ability to simulate scenarios< br>
-
 <br>
 👀<a href='https://www.cluebenchmarks.com/clueai.html'>PromptCLUE-large</a>在1000亿token中文语料上预训练, 累计学习1.5万亿中文token, 并且在数百种任务上进行Prompt任务式训练. 针对理解类任务, 如分类、情感分析、抽取等, 可以自定义标签体系; 针对多种生成任务, 可以进行采样自由生成.  <br> 
 <br>

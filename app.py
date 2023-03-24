@@ -9,12 +9,15 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
+base_info = "用户：你是谁？\n小元：我是元语智能公司研发的AI智能助手, 在不违反原则的情况下，我可以回答你的任何问题。"
 def preprocess(text):
+  text = f"{base_info}{text}"
   text = text.replace("\n", "\\n").replace("\t", "\\t")
   return text
 
 def postprocess(text):
   return text.replace("\\n", "\n").replace("\\t", "\t").replace('%20','  ')#.replace(" ", "&nbsp;")
+
 
 
 generate_config = {'do_sample': True, 'top_p': 0.9, 'top_k': 50, 'temperature': 0.7, 

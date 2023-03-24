@@ -86,7 +86,7 @@ def ChatYuan(api_key, text_prompt):
     # 需要返回得分的话，指定return_likelihoods="GENERATION"
     prediction = cl.generate(model_name='ChatYuan-large', prompt=text_prompt)
     # print the predicted text
-    print('prediction: {}'.format(prediction.generations[0].text))
+    #print('prediction: {}'.format(prediction.generations[0].text))
     response = prediction.generations[0].text
     if response == '':
         response = "很抱歉，我无法回答这个问题"

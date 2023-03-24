@@ -45,12 +45,15 @@ def chatyuan_bot(input, history):
        history = history[-5:]
 
     context = "\n".join([f"用户：{input_text}\n小元：{answer_text}" for input_text, answer_text in history])
-    print(context)
+    #print(context)
 
     input_text = context + "\n用户：" + input + "\n小元："
     output_text = answer(input_text)
+    print("="*20)
+    print(f"{input_text}\n{output_text}")
+    print("="*20)
     history.append((input, output_text))
-    print(history)
+    #print(history)
     return history, history
 
 block = gr.Blocks()
@@ -96,12 +99,15 @@ def chatyuan_bot_api(api_key, input, history):
       history = history[-5:]
 
     context = "\n".join([f"用户：{input_text}\n小元：{answer_text}" for input_text, answer_text in history])
-    print(context)
+    #print(context)
 
     input_text = context + "\n用户：" + input + "\n小元："
     output_text = ChatYuan(api_key, input_text)
+    print("="*20)
+    print(f"api_key:{api_key}\n{input_text}\n{output_text}")
+    print("="*20)
     history.append((input, output_text))
-    print(history)
+    #print(history)
     return history, history
 
 block = gr.Blocks()

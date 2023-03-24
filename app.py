@@ -14,17 +14,22 @@ def preprocess(text):
   return text
 
 def postprocess(text):
-  return text.replace("\\n", "\n").replace("\\t", "\t").replace('%20','  ').replace(" ", "&nbsp;")
+  return text.replace("\\n", "\n").replace("\\t", "\t").replace('%20','  ')#.replace(" ", "&nbsp;")
 
+
+generate_config = {'do_sample': True, 'top_p': 0.9, 'top_k': 50, 'temperature': 0.7, 
+                   'num_beams': 1, 'max_length': 1024, 'min_length': 3, 'no_repeat_ngram_size': 5, 
+                   'length_penalty': 0.6, 'return_dict_in_generate': True, 'output_scores': True}
 def answer(text, sample=True, top_p=0.9, temperature=0.7):
   '''sample：是否抽样。生成任务，可以设置为True;
   top_p：0-1之间，生成的内容越多样'''
   text = preprocess(text)
   encoding = tokenizer(text=[text], truncation=True, padding=True, max_length=1024, return_tensors="pt").to(device) 
-  if not sample:
-    out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, num_beams=1, length_penalty=0.6)
-  else:
-    out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, do_sample=True, top_p=top_p, temperature=temperature, no_repeat_ngram_size=3)
+  # if not sample:
+  #   out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, num_beams=1, length_penalty=0.6)
+  # else:
+  #   out = model.generate(**encoding, return_dict_in_generate=True, output_scores=False, max_new_tokens=1024, do_sample=True, top_p=top_p, temperature=temperature, no_repeat_ngram_size=3)
+  out=model.generate(**encoding, **generate_config)
   out_text = tokenizer.batch_decode(out["sequences"], skip_special_tokens=True)
   return postprocess(out_text[0])
 

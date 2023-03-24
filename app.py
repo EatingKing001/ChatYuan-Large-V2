@@ -48,6 +48,7 @@ def chatyuan_bot(input, history):
     #print(context)
 
     input_text = context + "\n用户：" + input + "\n小元："
+    input_text = input_text.strip()
     output_text = answer(input_text)
     print("open_model".center(20, "="))
     print(f"{input_text}\n{output_text}")
@@ -102,6 +103,7 @@ def chatyuan_bot_api(api_key, input, history):
     #print(context)
 
     input_text = context + "\n用户：" + input + "\n小元："
+    input_text = input_text.strip()
     output_text = ChatYuan(api_key, input_text)
     print("api".center(20, "="))
     print(f"api_key:{api_key}\n{input_text}\n{output_text}")

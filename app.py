@@ -89,7 +89,7 @@ with block as demo:
     state = gr.State()
     message.submit(chatyuan_bot, inputs=[message, state], outputs=[chatbot, state])
     with gr.Row():
-      clear_history = gr.Button("👋 清除历史对话 | Clear")
+      clear_history = gr.Button("👋 清除历史对话 | Clear History")
       clear = gr.Button('🧹 清除发送框 | Clear Input')
       send = gr.Button("🚀 发送 | Send")
       regenerate = gr.Button("🚀 重新生成本次结果 | regenerate")

@@ -69,12 +69,15 @@ def chatyuan_bot_regenerate(input, history):
        history = history[-5:]
 
     context = "\n".join([f"用户：{input_text}\n小元：{answer_text}" for input_text, answer_text in history])
-    print(context)
+    #print(context)
 
     input_text = context + "\n用户：" + input + "\n小元："
+    input_text = input_text.strip()
     output_text = answer(input_text)
+    print("open_model".center(20, "="))
+    print(f"{input_text}\n{output_text}")
     history.append((input, output_text))
-    print(history)
+    #print(history)
     return history, history
   
 block = gr.Blocks()

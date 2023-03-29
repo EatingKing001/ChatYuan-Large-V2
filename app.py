@@ -202,5 +202,5 @@ Based on the original functions of Chatyuan-large-v1, we optimized the model as 
     """)
 
 
-gui = gr.TabbedInterface(interface_list=[introduction,demo, demo_1], tab_names=["相关介绍","开源模型", "API调用"])
+gui = gr.TabbedInterface(interface_list=[introduction,demo, demo_1], tab_names=["相关介绍Introduction","开源模型Online Demo", "API调用"])
 gui.launch(quiet=True,show_api=False, share = False)

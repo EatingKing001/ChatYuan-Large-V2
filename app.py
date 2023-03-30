@@ -8,6 +8,7 @@ model = T5ForConditionalGeneration.from_pretrained("ClueAI/ChatYuan-large-v2")
 # 使用
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
+model.half()
 
 base_info = "用户：你是谁？\n小元：我是元语智能公司研发的AI智能助手, 在不违反原则的情况下，我可以回答你的任何问题。\n"
 def preprocess(text):

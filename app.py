@@ -258,7 +258,7 @@ Based on the original functions of Chatyuan-large-v1, we optimized the model as 
 
 
 gui = gr.TabbedInterface(
-    interface_list=[introduction, demo, demo_1],
-    tab_names=["相关介绍 | Introduction", "开源模型 | Online Demo", "API调用"])
+    interface_list=[introduction, demo],
+    tab_names=["相关介绍 | Introduction", "开源模型 | Online Demo"])
     
 gui.launch()
